@@ -1,9 +1,11 @@
 import gulp from 'gulp'
 import builderCover from './sources/js/builders/cover'
+import builderCommons from './sources/js/builders/commons'
 
 let idTasks = []
 idTasks.push(
-    builderCover(gulp)
+    builderCover(gulp),
+    builderCommons(gulp)
 )
 
 gulp.task('build-css', gulp.series(

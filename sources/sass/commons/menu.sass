@@ -1,0 +1,23 @@
+@import "./colors.sass"
+
+.menu__title
+    display: none
+
+.menu__item
+    display: block
+    @media (min-width: 560px)
+        display: inline-block
+        border-left:
+            style: solid
+            width: 1px
+            color: $colorPrimary
+        &:first-child
+            border-left: none
+
+.menu__link
+    color: $colorPrimary
+    text-transform: uppercase
+
+    @media (min-width: 560px)
+        display: inline-block
+        padding: 2px 26px

@@ -7,7 +7,7 @@
 @section('content')
     <main class="content">
         <article>
-            <img src="/assets/images/logo.png" alt="Jaguaribanos">
+            <img src="/assets/images/logo.png" width="377" height="73" alt="Jaguaribanos"/>
             <nav class="menu">
                 <h2 class="menuTitle">Menu</h2>
                 <ul class="menuItems">

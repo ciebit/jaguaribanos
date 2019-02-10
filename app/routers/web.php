@@ -12,7 +12,7 @@ $app->add('settingsMiddleware:run');
 
 $app->get('/', 'cover:run');
 
-$app->post('/personalidades/', 'personalities:run');
+$app->get('/personalidades/', 'personalities:run');
 
 $app->get('/personalidades/{personalitySlug}/', 'personality:run');
 

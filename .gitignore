@@ -2,4 +2,5 @@
 /storages/caches/views/
 /node_modules/
 /public/assets/css/
-settings.php
+/settings.php
+/storages/logs/

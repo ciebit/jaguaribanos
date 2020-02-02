@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Controllers;
 
 use App\Controllers\Controller;
@@ -6,13 +9,10 @@ use App\Views\View;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 
-class Error implements Controller
+class PageError implements Controller
 {
-    /** @var int */
-    private $code;
-
-    /** @var View */
-    private $view;
+    private int $code;
+    private View $view;
 
     public function __construct(int $code, View $view)
     {
@@ -29,10 +29,11 @@ class Error implements Controller
     {
         $html = $this->view->make();
 
-        $response
-        ->withStatus($this->code)
-        ->withHeader('Content-Type', 'text/html')
-        ->getBody()->write($html);
+        $response = $response
+            ->withStatus($this->code)
+            ->withHeader('Content-Type', 'text/html');
+
+        $response->getBody()->write($html);
 
         return $response;
     }

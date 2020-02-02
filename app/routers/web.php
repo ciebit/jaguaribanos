@@ -1,19 +1,28 @@
 <?php
-use Slim\App;
-use Slim\Container;
 
-$app = (function(){
-    $config = include __DIR__.'/containers/main.php';
-    $container = new Container($config);
-    return new App($container);
+declare(strict_types=1);
+
+use Slim\App;
+use DI\Bridge\Slim\Bridge;
+use DI\ContainerBuilder;
+
+$app = (function (): App {
+    $container = new ContainerBuilder;
+    $container->addDefinitions(include __DIR__ . '/../containers/main.php');
+    return Bridge::create($container->build());
 })();
 
-$app->add('settingsMiddleware:run');
+$app->addRoutingMiddleware();
 
-$app->get('/', 'cover:run');
+$app->addErrorMiddleware(true, true, true)
+    ->setDefaultErrorHandler('errorHandler');
 
-$app->get('/personalidades/', 'personalities:run');
+// $app->add('environmentMiddleware');
 
-$app->get('/personalidades/{personalitySlug}/', 'personality:run');
+$app->get('/', ['cover', 'run']);
+
+$app->get('/personalidades/', ['personalities','run']);
+
+$app->get('/personalidades/{personalitySlug}/', ['personality','run']);
 
 $app->run();

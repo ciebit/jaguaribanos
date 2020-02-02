@@ -1,10 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Middleware;
 
-use Psr\Http\Message\ServerRequestInterface as Request;
-use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Http\Server\MiddlewareInterface;
 
-interface Middleware
+interface Middleware extends MiddlewareInterface
 {
-    public function run(Request $request, Response $response, callable $next): Response;
 }

@@ -1,22 +1,18 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Settings;
 
 use App\Settings\Settings;
 
 class Environment implements Settings
 {
-    /** @var string */
-    private $locale;
-
-    /** @var string */
-    private $mediaUrl;
-
-    /** @var string */
-    private $timezone;
-
-    /** @var string */
-    private $viewsCache;
-
+    private string $locale;
+    private string $mediaUrl;
+    private string $timezone;
+    private string $viewsCache;
+    
     public function __construct(array $config)
     {
         $this->locale = (string) ($config['locale'] ?? '');

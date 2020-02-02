@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Controllers;
 
 use App\Views\View;
@@ -7,8 +10,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 
 class ContentStatic implements Controller
 {
-    /** @var View */
-    private $view;
+    private View $view;
 
     public function __construct(View $view)
     {

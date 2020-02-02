@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace App\Views;
 
 use App\Views\View;
@@ -6,11 +9,8 @@ use Jenssegers\Blade\Blade;
 
 class Html implements View
 {
-    /** @var Blade */
-    private $blade;
-
-    /** @var string */
-    private $view;
+    private Blade $blade;
+    private string $view;
 
     public function __construct(Blade $blade)
     {
